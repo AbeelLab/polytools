@@ -1,0 +1,59 @@
+group 'PL4'
+version '2.0.0'
+
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+apply plugin: 'findbugs'
+
+jacoco {
+    toolVersion = "0.8.0"
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+task fatJar(type: Jar, overwrite: true) {
+    manifest {
+        attributes 'Implementation-Title': 'Programming Life Consensus Jar',
+                'Implementation-Version': version,
+                'Main-Class': 'cli.Cli'
+    }
+    baseName = project.name
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12',
+            "org.mockito:mockito-core:2.+",
+            "org.assertj:assertj-core:3.+"
+    testCompile 'pl.pragmatists:JUnitParams:1.1.1'
+    testCompileOnly 'com.google.code.findbugs:annotations:3.0.1'
+    testCompileOnly 'com.google.code.findbugs:jsr305:3.0.1'
+    compileOnly "org.projectlombok:lombok:1.16.16"
+    compileOnly 'com.google.code.findbugs:annotations:3.0.1'
+    compileOnly 'com.google.code.findbugs:jsr305:3.0.1'
+    compile group: 'com.github.samtools', name: 'htsjdk', version: '2.1.1'
+    compile group: 'commons-cli', name: 'commons-cli', version: '1.4'
+    compile group: 'com.google.code.findbugs', name: 'annotations', version: '3.0.0'
+}
+
+sourceSets {
+    test {
+        java.srcDirs 'src/test/unit/java',
+                'src/test/integration/java',
+                'src/test/acceptance/java'
+    }
+}

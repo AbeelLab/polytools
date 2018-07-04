@@ -1,0 +1,6 @@
+##gff-version 3
+ctg123	.	operon	5	15	.	+	.	ID=operon001;Name=superOperon
+ctg123	.	exon	1300	1500	.	+	.	Parent=mrna0001,mrna0002
+ctg123	.	exon	1200	1600	.	+	.	Parent=mrna0001
+ctg123	.	mRNA	10000	15000	.	+	.	ID=mrna0002;Parent=operon001;Name=subsonicsquirrel
+ctg123	.	mRNA	1300	9000	.	+	.	ID=mrna0001;Parent=operon001;Name=sonichedgehog

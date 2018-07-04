@@ -1,0 +1,73 @@
+##fileformat=VCFv4.1
+##fileDate=20180531
+##source="Pilon version 1.22 Wed Mar 15 16:38:30 2017 -0400"
+##PILON="--genome /tudelft.net/staff-bulk/ewi/insy/DBL/tomokveld/workspace/cbs/fasta/cbs.fa --bam /tudelft.net/staff-bulk/ewi/insy/DBL/tomokveld/workspace/cbs/alignment/cbs.bam --vcf"
+##reference=file:/tudelft.net/staff-bulk/ewi/insy/DBL/tomokveld/workspace/cbs/fasta/cbs.fa
+##contig=<ID=CBS1,length=812290>
+##contig=<ID=CBS2,length=1480484>
+##contig=<ID=CBS3,length=590259>
+##contig=<ID=CBS4,length=263951>
+##contig=<ID=CBS5,length=862436>
+##contig=<ID=CBS6,length=547874>
+##contig=<ID=CBS7,length=426203>
+##contig=<ID=CBS8,length=772632>
+##contig=<ID=CBS9,length=662864>
+##contig=<ID=CBS10,length=872991>
+##contig=<ID=CBS11,length=783474>
+##contig=<ID=CBS12,length=1060500>
+##contig=<ID=CBS13,length=36198>
+##contig=<ID=CBS14,length=926828>
+##contig=<ID=CBS15,length=183365>
+##contig=<ID=CBS16,length=1284912>
+##contig=<ID=CBS17,length=311639>
+##contig=<ID=CBS18,length=995872>
+##contig=<ID=CBS19,length=580717>
+##contig=<ID=CBS20,length=268897>
+##contig=<ID=CBS21,length=1048199>
+##contig=<ID=CBS22,length=813607>
+##contig=<ID=CBS23,length=413986>
+##contig=<ID=CBS24,length=698708>
+##contig=<ID=CBS25,length=658371>
+##contig=<ID=CBS26,length=1043408>
+##contig=<ID=CBS27,length=966749>
+##contig=<ID=CBS28,length=754183>
+##contig=<ID=CBS29,length=788293>
+##contig=<ID=CBS30,length=1128411>
+##contig=<ID=CBS31,length=765784>
+##contig=<ID=CBS32,length=208794>
+##contig=<ID=CBS33,length=68765>
+##FILTER=<ID=LowCov,Description="Low Coverage of good reads at location">
+##FILTER=<ID=Amb,Description="Ambiguous evidence in haploid genome">
+##FILTER=<ID=Del,Description="This base is in a deletion or change event from another record">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Valid read depth; some reads may have been filtered">
+##INFO=<ID=TD,Number=1,Type=Integer,Description="Total read depth including bad pairs">
+##INFO=<ID=PC,Number=1,Type=Integer,Description="Physical coverage of valid inserts across locus">
+##INFO=<ID=BQ,Number=1,Type=Integer,Description="Mean base quality at locus">
+##INFO=<ID=MQ,Number=1,Type=Integer,Description="Mean read mapping quality at locus">
+##INFO=<ID=QD,Number=1,Type=Integer,Description="Variant confidence/quality by depth">
+##INFO=<ID=BC,Number=4,Type=Integer,Description="Count of As, Cs, Gs, Ts at locus">
+##INFO=<ID=QP,Number=4,Type=Integer,Description="Percentage of As, Cs, Gs, Ts weighted by Q & MQ at locus">
+##INFO=<ID=IC,Number=1,Type=Integer,Description="Number of reads with insertion here">
+##INFO=<ID=DC,Number=1,Type=Integer,Description="Number of reads with deletion here">
+##INFO=<ID=XC,Number=1,Type=Integer,Description="Number of reads clipped here">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Fraction of evidence in support of alternate allele(s)">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant">
+##INFO=<ID=SVLEN,Number=.,Type=String,Description="Difference in length between REF and ALT alleles">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record">
+##INFO=<ID=IMPRECISE,Number=0,Type=Flag,Description="Imprecise change from local reassembly (ALT contains Ns)">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=AD,Number=.,Type=String,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=DP,Number=1,Type=String,Description="Approximate read depth; some reads may have been filtered">
+##ALT=<ID=DUP,Description="Possible segmental duplication">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
+CBS1	1	.	C	.	80	LowCov	DP=2;TD=28;BQ=40;MQ=3;QD=40;BC=0,2,0,0;QP=0,100,0,0;PC=4;IC=0;DC=0;XC=2;AC=0;AF=0.00	GT	0/0
+CBS1	2	.	A	.	45	LowCov	DP=2;TD=28;BQ=23;MQ=3;QD=22;BC=2,0,0,0;QP=100,0,0,0;PC=6;IC=0;DC=0;XC=0;AC=0;AF=0.00	GT	0/0
+CBS1	3	.	C	.	43	LowCov	DP=2;TD=29;BQ=22;MQ=3;QD=21;BC=0,2,0,0;QP=0,100,0,0;PC=8;IC=0;DC=0;XC=1;AC=0;AF=0.00	GT	0/0
+CBS1	4	.	A	.	45	LowCov	DP=2;TD=30;BQ=23;MQ=3;QD=22;BC=2,0,0,0;QP=100,0,0,0;PC=9;IC=0;DC=0;XC=8;AC=0;AF=0.00	GT	0/0
+CBS1	5	.	C	.	231	LowCov	DP=6;TD=31;BQ=39;MQ=13;QD=38;BC=0,6,0,0;QP=0,100,0,0;PC=18;IC=0;DC=0;XC=3;AC=0;AF=0.00	GT	0/0
+CBS1	6	.	C	.	231	LowCov	DP=6;TD=35;BQ=39;MQ=13;QD=38;BC=0,6,0,0;QP=0,100,0,0;PC=22;IC=0;DC=0;XC=4;AC=0;AF=0.00	GT	0/0
+CB S1	7	.	A	.	214	LowCov	DP=6;TD=36;BQ=37;MQ=13;QD=35;BC=5,1,0,0;QP=99,1,0,0;PC=24;IC=0;DC=0;XC=19;AC=0;AF=0.00	GT	0/0
+CBS1	8	.	C	.	514	PASS	DP=13;TD=26;BQ=40;MQ=9;QD=39;BC=0,13,0,0;QP=0,100,0,0;PC=42;IC=0;DC=0;XC=0;AC=0;AF=0.00	GT	0/0
+CBS1	9	.	A	.	534	PASS	DP=14;TD=27;BQ=38;MQ=8;QD=38;BC=14,0,0,0;QP=100,0,0,0;PC=42;IC=0;DC=0;XC=0;AC=0;AF=0.00	GT	0/0
+CBS1	10	.	C	.	633	PASS	DP=16;TD=29;BQ=40;MQ=8;QD=39;BC=0,16,0,0;QP=0,100,0,0;PC=43;IC=0;DC=0;XC=0;AC=0;AF=0.00	GT	0/0

@@ -1,0 +1,50 @@
+##fileformat=VCFv4.1
+##fileDate=20180424
+##source="Pilon version 1.22 Wed Mar 15 16:38:30 2017 -0400"
+##PILON="--output SRR833154_H37Rv_BR_pilon --minmq 1 --vcf --tracks --changes --fix all,breaks --genome H37Rv_BR.fasta --jumps SRR833154_H37Rv_BR.bam"
+##reference=file:/Users/tomb/Documents/Work/Courses/2018/Context_Project/Data/Project_2/TB_example/H37Rv_BR.fasta
+##contig=<ID=genome,length=4411709>
+##FILTER=<ID=LowCov,Description="Low Coverage of good reads at location">
+##FILTER=<ID=Amb,Description="Ambiguous evidence in haploid genome">
+##FILTER=<ID=Del,Description="This base is in a deletion or change event from another record">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Valid read depth; some reads may have been filtered">
+##INFO=<ID=TD,Number=1,Type=Integer,Description="Total read depth including bad pairs">
+##INFO=<ID=PC,Number=1,Type=Integer,Description="Physical coverage of valid inserts across locus">
+##INFO=<ID=BQ,Number=1,Type=Integer,Description="Mean base quality at locus">
+##INFO=<ID=MQ,Number=1,Type=Integer,Description="Mean read mapping quality at locus">
+##INFO=<ID=QD,Number=1,Type=Integer,Description="Variant confidence/quality by depth">
+##INFO=<ID=BC,Number=4,Type=Integer,Description="Count of As, Cs, Gs, Ts at locus">
+##INFO=<ID=QP,Number=4,Type=Integer,Description="Percentage of As, Cs, Gs, Ts weighted by Q & MQ at locus">
+##INFO=<ID=IC,Number=1,Type=Integer,Description="Number of reads with insertion here">
+##INFO=<ID=DC,Number=1,Type=Integer,Description="Number of reads with deletion here">
+##INFO=<ID=XC,Number=1,Type=Integer,Description="Number of reads clipped here">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Fraction of evidence in support of alternate allele(s)">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant">
+##INFO=<ID=SVLEN,Number=.,Type=String,Description="Difference in length between REF and ALT alleles">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record">
+##INFO=<ID=IMPRECISE,Number=0,Type=Flag,Description="Imprecise change from local reassembly (ALT contains Ns)">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=AD,Number=.,Type=String,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=DP,Number=1,Type=String,Description="Approximate read depth; some reads may have been filtered">
+##ALT=<ID=DUP,Description="Possible segmental duplication">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
+genome	234	.	G	A	151	PASS	DP=7;TD=16;BQ=29;MQ=56;QD=21;BC=6,1,0,0;QP=94,6,0,0;PC=26;IC=0;DC=0;XC=1;AC=2;AF=0.94	GT	1/1
+genome	1977	.	A	G	294	PASS	DP=11;TD=16;BQ=27;MQ=60;QD=26;BC=0,0,11,0;QP=0,0,100,0;PC=75;IC=0;DC=0;XC=1;AC=3;AF=1.00	GT	1/1
+genome	4013	.	T	C	484	PASS	DP=14;TD=18;BQ=35;MQ=59;QD=34;BC=0,14,0,0;QP=0,100,0,0;PC=90;IC=0;DC=0;XC=0;AC=4;AF=1.00	GT	1/1
+genome	4590	.	T	C	2	LowCov	DP=1;TD=5;BQ=2;MQ=58;QD=2;BC=0,1,0,0;QP=0,100,0,0;PC=67;IC=0;DC=0;XC=0;AC=5;AF=1.00	GT	1/1
+genome	7362	.	G	C	481	PASS	DP=14;TD=14;BQ=34;MQ=60;QD=34;BC=0,14,0,0;QP=0,100,0,0;PC=88;IC=0;DC=0;XC=0;AC=2;AF=1.00	GT	1/1
+genome	7585	.	G	C	401	PASS	DP=13;TD=15;BQ=31;MQ=57;QD=30;BC=0,13,0,0;QP=0,100,0,0;PC=78;IC=0;DC=0;XC=0;AC=2;AF=1.00	GT	1/1
+genome	9304	.	G	A	882	PASS	DP=27;TD=33;BQ=33;MQ=58;QD=32;BC=27,0,0,0;QP=100,0,0,0;PC=93;IC=0;DC=0;XC=3;AC=2;AF=1.00	GT	1/1
+genome	11370	.	C	T	375	PASS	DP=12;TD=14;BQ=31;MQ=58;QD=31;BC=0,0,0,12;QP=0,0,0,100;PC=67;IC=0;DC=0;XC=0;AC=2;AF=1.00	GT	1/1
+genome	11879	.	A	G	257	PASS	DP=8;TD=10;BQ=32;MQ=57;QD=32;BC=0,0,8,0;QP=0,0,100,0;PC=64;IC=0;DC=0;XC=1;AC=2;AF=1.00	GT	1/1
+genome	21783	.	C	T	15	Amb;LowCov	DP=4;TD=7;BQ=36;MQ=60;QD=3;BC=0,3,0,1;QP=0,72,0,28;PC=69;IC=0;DC=0;XC=0;AC=1;AF=0.28	GT	0/1
+genome	21795	.	G	A	167	PASS	DP=5;TD=7;BQ=33;MQ=60;QD=33;BC=5,0,0,0;QP=100,0,0,0;PC=69;IC=0;DC=0;XC=0;AC=2;AF=1.00	GT	1/1
+genome	24698	.	GCCGCGTTGCTCGGGGTAA	G	.	Amb	DP=10;TD=11;BQ=29;MQ=57;QD=23;BC=0,8,0,0;QP=0,100,0,0;PC=90;IC=0;DC=2;XC=0;AC=1;AF=0.21	GT	0/1
+genome	24721	.	G	C	41	Amb;LowCov	DP=3;TD=7;BQ=36;MQ=60;QD=13;BC=0,1,2,0;QP=0,35,65,0;PC=86;IC=0;DC=0;XC=2;AC=1;AF=0.35	GT	0/1
+genome	26959	.	C	G	397	PASS	DP=15;TD=19;BQ=27;MQ=56;QD=26;BC=0,0,15,0;QP=0,0,100,0;PC=93;IC=0;DC=0;XC=0;AC=2;AF=1.00	GT	1/1
+genome	28629	.	A	C	2	LowCov	DP=1;TD=1;BQ=2;MQ=60;QD=2;BC=0,1,0,0;QP=0,100,0,0;PC=72;IC=0;DC=0;XC=0;AC=2;AF=1.00	GT	1/1
+genome	28665	.	A	C	2	LowCov	DP=1;TD=2;BQ=2;MQ=60;QD=2;BC=0,1,0,0;QP=0,100,0,0;PC=72;IC=0;DC=0;XC=0;AC=2;AF=1.00	GT	1/1
+genome	28687	.	T	G	8	LowCov	DP=1;TD=2;BQ=8;MQ=60;QD=8;BC=0,0,1,0;QP=0,0,100,0;PC=72;IC=0;DC=0;XC=0;AC=2;AF=1.00	GT	1/1
+genome	28861	.	G	A	31	LowCov	DP=1;TD=2;BQ=31;MQ=60;QD=31;BC=1,0,0,0;QP=100,0,0,0;PC=73;IC=0;DC=0;XC=0;AC=2;AF=1.00	GT	1/1
+genome	29482	.	CA	C	.	PASS	DP=13;TD=14;BQ=0;MQ=59;QD=0;BC=0,0,0,0;QP=0,0,0,0;PC=93;IC=0;DC=13;XC=0;AC=2;AF=1.00	GT	1/1

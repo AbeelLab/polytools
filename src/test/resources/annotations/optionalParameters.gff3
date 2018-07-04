@@ -1,0 +1,11 @@
+##gff-version 3
+ctg123	.	operon	5	15	.	+	.	ID=operon001;Name=superOperon;Alias=mrSuper;Target=Aquired
+ctg123	. 	exon	1300	1500	.	+	.	Parent=mrna0001;Gap=D
+ctg123	.	exon	1050	1500	.	+	.	Parent=mrna0001;Derives_from=operon001
+ctg123	.	exon	3000	3902	.	+	.	Parent=mrna0001;Note=This is fun
+ctg123	.	exon	5000	5500	.	+	.	Parent=mrna0001;Dbxref=mrna0001
+ctg123	.	exon	7000	9000	.	+	.	Parent=mrna0001;Ontology_term=test
+ctg123	.	mRNA	10000	15000	.	+	.	ID=mrna0002;Parent=operon001;Name=subsonicsquirrel
+ctg123	.	exon	10000	12000	.	+	.	Parent=mrna0002;Is_circular=true
+ctg123	.	exon	14000	15000	.	+	.	Parent=mrna0002
+ctg123	.	mRNA	1300	9000	.	+	.	ID=mrna0001;Parent=operon001;Name=sonichedgehog
