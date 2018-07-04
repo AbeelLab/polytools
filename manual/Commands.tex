@@ -1,0 +1,164 @@
+\section{Commands}
+The commands which are supported in our tools and the flags you can use with the commands. You can always use --help in the command line to get a list of options and a short description. Each command has a a short option (-) or a long option (--).
+
+\subsection{Consensus} \label{command:consensus}
+The command for generating a sequence from a reference genome and a variant context file.
+\subsubsection{Calls (Required)}
+\textbf{Usage:} -c --calls <filename>\\
+\textbf{Description:} Specify the filename with the variant contexts. This can be an absolute path or relative to the path where the program is executed.
+
+\subsubsection{Annotations (GFF)}
+\textbf{Usage:} -a --annotations <file> [name1] [name2] [name3]\\
+\textbf{Description:}Uses an annotation file and a name to determine the regions to print. See section\ref{sec:Annotations} for a more detailed explanation.
+
+\subsubsection{Chromosome}
+\textbf{Usage:} -chr --chromosome <arg>\\
+\textbf{Description:} Specify which chromosome to generate the consensus sequence of, this is assumed to be the same chromosome as in the fasta file if specified. 
+
+\subsubsection{Allele Frequency Encoder}
+\textbf{Usage:} -ea --af-encoder <bounds>\\
+\textbf{Description:}Use an encoder based on the allele frequency field. The bound is a string in the form <lowerbound>-<upperbound>.
+
+\subsubsection{Exclude positions}
+\textbf{Usage:} --exclude-positions <regions>\\	
+\textbf{Description:} Exclude all variants that are within these regions. The reference nucleotide should be completely in one the given regions. A region is a string in the form of: <start>-<end> or <start>. You can specify multiple regions separated by space. 
+This is different from the regions flag, in that these positions will still be included in the generated consensus sequence, but will always display the reference nucleotide.
+
+\subsubsection{Exclude positions Overlap}
+\textbf{Usage:} --exclude-positions-overlap <regions>	\\
+\textbf{Description:} Exclude all variants that overlap the region. The reference nucleotide should overlap one of the given regions. A region is a string in the form of: <start>-<end> or <start>. You can specify multiple regions separated by space. This is different from the regions flag, in that these positions will still be included in the generated consensus sequence, but will always display the reference nucleotide.
+
+\subsubsection{Reference}
+\textbf{Usage:} -f --fasta <filename>\\
+\textbf{Description:} Specify the filename of the fasta file that contains the reference genome. This can be an absolute path or relative to the path where the program is executed.
+
+\subsubsection{Keep filtered}
+\textbf{Usage:} --keep-filtered <filter-flag>\\
+\textbf{Description:} Include only variants matching a specific filter flag (Pass, Amb, LowCov). Using this command multiple times keeps all variants matching any of these flags. Mutually exclusive with keep-filtered and remove-filtered-all.
+
+\subsubsection{Keep Only Indels}
+\textbf{Usage:} --keep-only-indels \\
+\textbf{Description:}  This filter will only consider                                        indels when generating the consensus sequence.
+
+
+\subsubsection{Allele count}
+\textbf{Usage:} --max-ac <arg> \\
+\tab--min-ac <arg>\\
+\textbf{Description:} Include only variants with a specific allele count. If the allele count attribute is not present in the variant, it will also not include the variant.
+
+\subsubsection{Allele Frequency}
+\textbf{Usage:} --max-af <arg> \\
+\tab--min-af <arg>\\
+\textbf{Description:} Include only variants with a specific allele frequency. If the allele frequency attribute is not present in the variant, it will also not include the variant.
+
+\subsubsection{Allele Depth}
+\textbf{Usage:} --max-dp <arg> \\
+\tab --min-dp <arg>
+\textbf{Description:} Include only variants with a specific allele depth. If the allele depth attribute is not present in the variant, it will also not include the variant.
+
+\subsubsection{Quality}
+\textbf{Usage:} --min-q <arg> \\
+\textbf{Description:} Include only variants where the QUAL field is greater or equal to this value. 
+
+\subsubsection{Colors}
+\textbf{Usage:} -col --color <arg> \\
+\textbf{Description:}  Use color in output only if output is not to file, use 0 for no color, 1 for only giving IUPAC letters color, 2 to give every base a color, or 3 to only color the variants. (Default when writing to console: 0)
+
+\subsubsection{Output}
+\textbf{Usage:} -o --out <filename>\\
+\textbf{Description:} Specify the filename to were the results are written. If you don't specify this flag the result will be printed to the terminal. The filename can be an absolute path or relative to the path where the program is executed.
+
+\subsubsection{Include positions}
+\textbf{Usage:} --positions <regions>\\	
+\textbf{Description:} Include all variants that are within these regions. The reference nucleotide should be completely in one the given regions. A region is a string in the form of: <start>-<end> or <start>. You can specify multiple regions separated by space. 
+This is different from the regions flag, in that these positions will only be considered for the variants, but all the positions that are note included in this list will still display the reference nucleotide.
+
+\subsubsection{Include positions Overlap}
+\textbf{Usage:} --positions-overlap <regions>	\\
+\textbf{Description:} Include all variants that overlap the region. The reference nucleotide should overlap one of the given regions. A region is a string in the form of: <start>-<end> or <start>. You can specify multiple regions separated by space.
+This is different from the regions flag, in that these positions will only be considered for the variants, but all the positions that are note included in this list will still display the reference nucleotide.
+
+\subsubsection{Region}
+\textbf{Usage:} -r --region <regions>\\
+\textbf{Description:} Specify the regions you want to include in your result. A region is a string in the form of: <start>-<end> or <start>. You can specify multiple regions separated by space. We currently do not support overlapping regions.
+
+\subsubsection{Exclude filtered}
+\textbf{Usage:} --remove-filtered <filter-flag>\\
+\textbf{Description:} Exclude all variants matching a specific filter flag. Using this command multiple times removes all variants matching any of these flags. Mutually exclusive with keep-filtered and remove-filtered-all.
+
+\subsubsection{Exclude filtered all} 
+\textbf{Usage:} --remove-filtered-all <filter-flag>\\
+\textbf{Description:} Exclude all variants matching a specific filter flag. Mutually exclusive with keep-filtered and remove-filtered-all.
+
+\subsubsection{Remove indels} 
+\textbf{Usage:}  --remove-indels <filter-flag>\\
+\textbf{Description:} This filter will ignore any indels when generating a consensus sequence.
+
+\subsubsection{Skip Failing Calls} 
+\textbf{Usage:} -sf --skip-failing-calls\\
+\textbf{Description:}  Skip calls if filters fail, if no                                        fasta is present this will put a '.' on the index where the call did not pass the filter(s).
+
+\subsubsection{Sample Encoder} 
+\textbf{Usage:} --sample-encoder\\
+\textbf{Description:} The sample encoder will choose homozygous or heterozygous based on the sample column in the vcf file. The sample encoder will use the reference if the value of the column is 0/0, the alternate if the value is 1/1 or the IUPAC if the value is 0/1.
+
+\subsubsection{Statistics Output 1} 
+\textbf{Usage:} -so --stats-to-out\\
+\textbf{Description:} Output the consensus generation stats to the standard output stream see section \ref{sec:statistics} for more information. If --stats-to-err is also specified it will print to the error stream instead of the standard output stream.
+
+\subsubsection{Statistics Output 2} 
+\textbf{Usage:} -se --stats-to-err\\
+\textbf{Description:} Output the consensus generation stats to the error stream see section \ref{sec:statistics} for more information.
+
+\subsubsection{Configuration}
+\textbf{Usage:}  -conf --configuration-file <filename> \\
+\textbf{Description:} Absolute or relative path to a configuration file, that contains additional command line arguments on seperate lines. The command line takes precedence if arguments are defined in both.
+
+\subsection{Coverage} \label{command:coverage}
+\subsubsection{Bam File (Required)}
+\textbf{Usage:} -b --bam-file <filename>\\
+\textbf{Description:} Specify the filename of the bam file you want to generate a coverage report of. The filename can be an absolute path or relative to the path where the program is executed..
+
+\subsubsection{Chromosome (Required)}
+\textbf{Usage:} -c --chromosome-name <name>\\
+\textbf{Description:} Specify the name of the chromosome were you want to create a coverage report of.
+
+\subsubsection{Detailed}
+\textbf{Usage:}  -A --array-coverage\\
+\textbf{Description:} Gives a more detailed description on the amount of coverage. Displays the minimum and maximum coverage of the given interval.
+
+\subsubsection{Filter Duplicates}
+\textbf{Usage:}  -fd --duplicate-reads\\
+\textbf{Description:} If this flag is present it will filter out all the duplicate reads for determining the coverage.
+
+\subsubsection{Filter Mapping Quality}
+\textbf{Usage:} -fq --mapping-quality <value>\\
+\textbf{Description:} Filters out all the reads that do not fulfill the minimum given quality.
+
+\subsubsection{Filter Secondary or Supplementary}
+\textbf{Usage:}  -fs --secondary-or-supplementary\\
+\textbf{Description:} If this flag is present it will filter out SAMRecords with NotPrimaryAlignment or Supplementary flag set.
+
+\subsubsection{Filter Vendor Read Quality}
+\textbf{Usage:}  -fv --fails-vendor-read-quality \\
+\textbf{Description:} If this flag is present it will filter out SAMRecords that do not have the vendor quality check flags.
+
+\subsubsection{Filters default}
+\textbf{Usage:} -fy --default-settings  \\
+\textbf{Description:} If this flag is present it will ignore all the filter settings and use the default settings.
+
+\subsubsection{Minimal Coverage}
+\textbf{Usage:} -m --minimal-coverage <value>  \\
+\textbf{Description:} The minimum amount of times a base needs to be covered to be included in the results.
+
+\subsubsection{Region}
+\textbf{Usage:} -r --region <regions>\\
+\textbf{Description:} Specify the regions you want to include in your result. A region is a string in the form of: <start>-<end> or <start>. You can specify multiple regions separated by space. We currently do not support overlapping regions.
+
+\subsubsection{Threads}
+\textbf{Usage:} -t --threads <regions>\\
+\textbf{Description:} Specify the amount of threads to use for calculating the coverage.
+
+\subsubsection{Configuration}
+\textbf{Usage:}  -conf --configuration-file <filename> \\
+\textbf{Description:} Absolute or relative path to a configuration file, that contains additional command line arguments on seperate lines. The command line takes precedence if arguments are defined in both.

@@ -1,0 +1,10 @@
+\section{Annotations}\label{sec:Annotations}
+Our tool supports annotations of the gff3\footnote{https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md} format.
+
+\subsection{Using the annotation file}
+If you have an gff3 file you can use the --annotation command to  use a named annotation from that file. The consensus sequence generator will then generate the sequence of that feature, and then it will generate the sequences of it's children, and then those children's children and so on. Take for example the following gff3 file.
+\VerbatimInput{sampleAnnotations.gff3.txt}
+
+If you want to generate a consensus sequence of the gene EDEN, you should use the following command:
+consensus -a ./sampleAnnotations.gff3 EDEN -c ./sample.vcf \\
+The generated sequence will have a header indicating the gene EDEN, and then the sequence from 1000 to 9000. After that, a header for the  binding site, and a sequence from 1000 to 1012. Then it will output sequences for each of the MRNA features with headers, and lastly the exons and CDS features with headers.

@@ -1,0 +1,51 @@
+\section{Coverage}
+The coverage command can be used to calculate the coverage of a sequence alignment map (SAM or BAM) file. See section \ref{command:coverage} for the complete list of options and descriptions.\\
+
+\subsection{The file and chromosome}
+To generate a coverage of a file named sample.bam with a chromosome with the name 'sample-chr|' you can run the following command:
+\\
+\begin{markdown}
+coverage -b sample.bam -c "sample-chr|"
+\end{markdown}
+\\
+\\
+After running this command something similar to the following will be printed to the terminal:\\
+Coverage CHR: sample-chr|\\
+Interval: [0, 4411709]\\
+Average depth: 17.1\\
+Covered width: 0.95\\
+\\
+As you can see, you'll get the average depth, covered width, and the interval. The current interval is from [0,4411709] or in other words the whole chromosome. You can specify the region with the --region flag like this:
+\\
+\begin{markdown}
+coverage -b sample.bam -c "sample-chr|" -r 100-200
+\end{markdown}
+\\
+\\
+Coverage CHR: sample-chr|\\
+Interval: [100, 200]\\
+Average depth: 22.138\\
+Covered width: 1.0\\
+
+\subsection{Filters}
+There are several filters you can use to specify which parts are included in calculating the coverage and depth of the sample. For the full options see section \ref{command:coverage}. If you for example want to know the coverage if you only consider the alleles with an minimal coverage of 20 and a minimum mapping quality of 4 you can execute the following command:
+\\
+\begin{markdown}
+coverage -b sample.bam -c "sample-chr|"  --minimal-coverage 20 --mapping-quality 4
+\end{markdown}
+
+\subsection{Detailed Coverage}
+You can get more information on the coverage by using the array-coverage flag:\\
+\begin{markdown}
+coverage -b sample.bam -c "sample-chr|"  --array-coverage
+\end{markdown}
+
+You'll then get the something like the following:\\
+\\
+Coverage CHR: sample|\\
+Interval: [100, 1100]  Low/High: 12/32\\
+Average depth: 21.375 - Covered width: 1.0\\
+At least 15 coverage: 97.0\% (971 bases)\\
+At least 23 coverage: 34.66\% (347 bases)\\
+At least 31 coverage: 0.59\% (6 bases)\\
+At least 39 coverage: 0.0\% (0 bases)\\

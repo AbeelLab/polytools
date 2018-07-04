@@ -1,0 +1,45 @@
+\section{Config file}
+For optional parameters you can use the --configuration flag to store some standard parameters in a config file. The --configuration flag has one parameter, the path to the config file.
+The command line takes precedence if arguments are defined in both.
+
+\subsection{File format}
+To add options to the config you start with the command (consens or coverage) you want to add the flags and then on every new line a flag with arguments can be added as seen in figure~\ref{fig:config-file}. You can use '\#' to mark a line as a comment.
+\\
+\begin{figure}[h]
+\caption{config.txt}
+\fbox{%
+    \parbox{\textwidth}{%
+\# The consensus command.\\
+consensus\\
+-r 100-200\\
+-ea 0.2-08\\
+\# The coverage command\\
+coverage\\
+-r 100-200
+}
+}
+\label{fig:config-file}
+\end{figure}
+
+You can now execute a command with: \\
+\begin{markdown}
+'consensus -c variants.vcf --config config.txt'
+\end{markdown}
+\\
+This will execute the command that will have the same result as the command:
+\\
+\begin{markdown}
+'consensus -c variants.vcf -r 100-200 -ea 0.2-0.8'
+\end{markdown}
+\\
+\\
+If both the option is defined in the command-line and in the config file the command-line argument will overwrite the config-argument. For example:\\ 
+\begin{markdown}
+'consensus -c variants.vcf --config config.txt -r 200-300'
+\end{markdown}
+\\
+Will have the same result as:
+\\
+\begin{markdown}
+'consensus -c variants.vcf -r 200-300 -ea 0.2-0.8'
+\end{markdown}

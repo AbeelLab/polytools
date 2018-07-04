@@ -1,0 +1,74 @@
+\section{Consensus Sequence}
+The consensus command can be used to generate a consensus sequence from a reference chromosome and a set of variants. You can see the full list of options in section \ref{command:consensus}.
+
+\subsection{Consensuses sequence from Fasta and VCF}
+A fasta file with a reference genome and an VCF file with a list of variants can be used to generate a new consensus sequence. To generate a sequence from an fasta file named sample.fasta and an vcf file named sample.vcf the following command can be used:\\
+\begin{markdown}
+consensus -f sample.fasta -c sample.vcf
+\end{markdown}
+\\
+\\
+This will print the whole sequence to the terminal. We can specify an output file and multiple regions to sequence with the flag --out and the flag --region respectively:\\
+\begin{markdown}
+consensus -f sample.fasta -c sample.vcf -out result.fasta -r 100-239 300-439
+\end{markdown}
+
+If you then look in the result.fasta you'll get something like the following:\\
+\\
+>sample-CHR|100-239\\
+GCTAATCTCAGCGCTCCGCTGA...\\
+TCGAGGGGTTTGCTCTGTTATC...\\
+>sample-CHR|300-439\\
+CGCTCCGCCGGCGACCGACGAA...\\
+CCAGACACCACAACCGACAACG...
+
+Gzipped fasta files are also supported.
+
+\subsection{Sequence from an vcf file.}
+You can also generate a sequence from only an VCF file. The VCF should then contain a variant for every position otherwise you'll get large gaps in your resulting consensus sequence. To generate a sequence from an sample.vcf you can use the following command:\\
+\begin{markdown}
+```consensus -c sample.vcf```
+\end{markdown}
+
+GZipped vcf files are also supported.
+
+\subsection{Filters}
+You can add several filters for determining which variants to include in your results. For the full list of filters see section \ref{command:consensus}. For example to generate a consensus sequence with only the variants that have a depth larger than 10 you can use the following command:\\
+\begin{markdown}
+consensus -f sample.fasta -c sample.vcf --min-dp 10
+\end{markdown}
+
+\subsection{Homozygous and Heterozygous}
+You can also specify when to consider an variant as Homozygous and when to consider a variant as Heterozygous, for all the options see section \ref{command:consensus}. If this is not specified a default setting is used. For example to specify whether an variant is Homozygous or Heterozygous based on the allele frequency you can use the --af-encoder flag which will consider an variant as heterozygous if its result is between the lower and upper bound.
+\\
+\\
+\begin{markdown}
+consensus -f sample.fasta -c sample.vcf --allele-encoder 0.10-0.80
+\end{markdown}
+\\
+\\
+This command will output the reference nucleotide when the allele frequency is below 0.10, the alternate nucleotide when the allele  frequency is above 0.80, or the IUPAC encoding based on the reference and the alternate when it is between 0.10 and 0.80.
+
+By default it will use the sample column for determining if the nucleotide is Homozygous or Heterozygous. You can explicitly add this option with the --sample-encoder flag. The sample encoder will use the reference if the value is 0/0, the alternate if the value 1/1 or the IUPAC if the value is 0/1.
+
+\subsection{Generation Statistics}\label{sec:statistics}
+You can add the flag --stats-to-out to display statistics about the generated sequence.
+Add the end of each region for the consensus sequence a overview is displayed with as shown in figure \ref{fig:statistics}. You can add the flag --stats-to-err to redirect the results to the error output stream so that it is possible to pipe the output into another program.
+
+\begin{figure}[h]
+\caption{Result statistics}
+\label{fig:statistics}
+\begin{verbatim}
+Total written nucleotides: 190024
+        References from VCF: 0
+        References from Fasta: 0
+        Alternatives from VCF: 71
+        Heterozygous call results: 125
+        Unknown nucleotides: 189828
+Insertions / Deletions
+        Insertions: 10
+        Deletions: 2
+        Average Insertion Length: 0.4
+        Average Deletion Length:1.0
+\end{verbatim}
+\end{figure}

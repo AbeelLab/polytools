@@ -1,0 +1,69 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{makeidx}
+\usepackage{minted}
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+\usepackage{mdframed}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\setcounter{tocdepth}{2}
+\setlength{\parindent}{0pt}
+\usepackage{markdown}
+
+\usepackage{fancyvrb}
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{fontsize=\footnotesize,
+ %
+ frame=lines,  % top and bottom rule only
+ framesep=2em, % separation between frame and text
+ rulecolor=\color{gray},
+ %
+ label=\fbox{sampleAnnotations.gff3},
+ labelposition=topline,
+ %
+ commandchars=\|\(\), % escape character and argument delimiters for
+                      % commands within the verbatim
+ commentchar=*        % comment character
+}
+
+\title{Polytools Manual}
+\author{Arjan Seijs, Erik Sennema, \\Regi Veerhuis, Koen Du Buf, Bas Jenneboer}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{2}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\usepackage{titletoc,tocloft}
+\setlength{\cftsubsecindent}{1cm}
+\setlength{\cftsubsubsecindent}{2.2cm}
+\dottedcontents{section}[1.5em]{}{1.3em}{.6em}
+
+\begin{document}
+%Title page
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\include{RunningTheTool}
+\include{ConsensusSequence}
+\include{Coverage}
+\include{Annotations}
+\include{Config}
+\include{Examples}
+\include{Commands}
+
+\end{document}

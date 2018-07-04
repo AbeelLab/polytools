@@ -1,0 +1,27 @@
+\section{Example scenarios}
+There are some standard examples shipped with the product that can be run from the command line, all the files used by the examples are stored in the "examples" folder.
+
+You can get a list with all the current examples by running:\\
+\begin{markdown}
+java -jar polytools.jar examples
+\end{markdown}
+\\
+\\
+To run of the examples provided you can specify the name:
+\\
+\begin{markdown}
+java -jar polytools.jar examples "Multiple regions"
+\end{markdown}
+
+This will output the executed command, the expected output and 
+whether our automated test agrees with the output.
+\begin{verbatim}
+>gi|561108321|ref|NC_018143.2||10-100|
+GACCCCGGTTCAGGCTTCACCACAGTGTGGAACGCGGTCGTCTCCGAACTTAACGGCGACCCTAAGGTTG
+ACGACGGACCCAGCAGTGATG
+>gi|561108321|ref|NC_018143.2||600-700|
+TTACAACCCCCTGTTCATCTGGGGCGAGTCCGGTCTCGGCAAGACACACCTGCTACACGCGGCAGGCAAC
+TATGCCCAACGGTTGTTCCCGGGAATGCGGG
+
+Which is correct according to specifications.
+\end{verbatim}
