@@ -27,10 +27,10 @@ $ java -jar polytools-<version>.jar -examples
 ```
 Now you see some example commands that explain the functionality of the program.
 
-You can find more examples and explanation of the commands in the manual at the [Project Wiki](https://gitlab.ewi.tudelft.nl/TI2806/2017-2018/PL/pl4/pl4/wikis/home) under documents.
+You can find more examples and explanation of the commands in the manual included in the [release](https://github.com/AbeelLab/polytools/releases)
 
 ### Requirements
-* Java runtime environment (verion 1.8 and above) [Java](https://www.java.com/en/download/help/download\_options.xml).
+* Java runtime environment (version 1.8 and above) [Java](https://www.java.com/en/download/help/download\_options.xml).
 
 
 ## Features
